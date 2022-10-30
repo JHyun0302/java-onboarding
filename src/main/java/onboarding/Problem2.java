@@ -60,4 +60,8 @@ public class Problem2 {
         answer = solution(cryptogram);
         System.out.println("Solution: " +answer);
     }
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> 57301ec (problem2,3,4,5 commit)
