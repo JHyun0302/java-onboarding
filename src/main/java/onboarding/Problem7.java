@@ -175,18 +175,13 @@ public class Problem7 {
         answer = temp_ans;
 
 
-        System.out.println();
-        for(i =0; i< order_idx.length;i++) {
-            System.out.print(order_idx[i] + " ");
-        }
-        System.out.println();
-        for(i =0; i< list.length;i++) {
+/*        for(i =0; i< list.length;i++) {
             for (j = 0; j < list[0].length; j++) {
                 System.out.print(list[i][j] + " ");
             }
             System.out.println();
         }
-        System.out.println();
+        System.out.println();*/
 
         for(i =0; i< answer.size();i++) {
             System.out.print(answer.get(i) + " ");
