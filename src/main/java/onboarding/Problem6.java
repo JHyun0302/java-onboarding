@@ -61,7 +61,6 @@ public class Problem6 {
         String compare2 = null;
         int cnt =0;
         String[] res = temp.split(" ");
-
         int[] idx = new int[forms.size()];
         for(i =0; i< forms.size(); i++){
                 mail[i] = res[i*2];
@@ -69,13 +68,11 @@ public class Problem6 {
         } //mail & name 배열에 각각 값 넣어줌!! 서로 비교해서 뽑아내는 과정 필요!
         *//*for(i =0; i< forms.size(); i++) {
             System.out.print(mail[i]+ " ");
-
         }
         System.out.println();
         for(i =0; i< forms.size(); i++) {
             System.out.print(name[i]+ " ");
         }*//*
-
         for(i =0; i< mail.length;i++){
             remove = mail[i].toString();
             remove = remove.replace("@email.com", "");
@@ -91,7 +88,6 @@ public class Problem6 {
                             if(compare1.charAt(k) == compare2.charAt(l) || compare1.charAt(k) == compare2.charAt(l+1))
                             cnt++;
                         }
-
                     }
                 }
             }
@@ -104,7 +100,6 @@ public class Problem6 {
         System.out.println(stack);
         return answer;
     }
-
     public static void main(String[] args) {
         List<List<String>> forms = Arrays.asList(Arrays.asList("jm@email.com", "제이엠"), Arrays.asList("jason@email.com", "제이슨"), Arrays.asList("woniee@email.com", "워니"),  Arrays.asList("mj@email.com", "엠제이"), Arrays.asList("nowm@email.com", "이제엠"));
         //forms.forEach(System.out::println);

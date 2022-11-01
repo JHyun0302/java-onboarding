@@ -72,6 +72,13 @@ public class Problem7 {
                     guest_score[i] += 1; //사용자의 타임 라인에 방문한 횟수 = 1점
             }
         }
+        for (i = 0; i < guest.length; i++) {
+            for (j = 0; j < nickname.length; j++) {
+                if (guest[i] == nickname[j])
+                    guest_score[i] = 0; // 이미 친구이면 방문 점수 0으로 초기화!!
+            }
+        }
+
 
         int cnt = 0;
         int width = 0;
@@ -138,51 +145,47 @@ public class Problem7 {
                 if(tem == sum[j] && visit[j] == false){
                     order_idx[i] = j;
                     visit[j] = true;
+                    break;
                 }
-            else{
-
-                }
-
-
         }
 
+        String[] order_nickname = new String[list[0].length];
 
-    /*        for(i =0; i< list[0].length;i++) { //list 2차원 배열에 점수 저장 완료
-            list[1][i] =String.valueOf(sum[i]);
-        }*/ // 내림차순 정렬 후 삽입하기!!!!!!!!!!
+        for(i =0; i< order_idx.length;i++) { //list 2차원 배열에 점수 저장 완료
+            order_nickname[i] = list[0][i];
+        }
+        for(i =0; i< order_idx.length;i++) { //list 2차원 배열에 점수 저장 완료
+
+            list[0][i] = order_nickname[order_idx[i]];
+            list[1][i] = String.valueOf(sort_sum[i]);
+        } // 내림차순 정렬 후 삽입하기!!!!!!!!!!
 
 
+        List<String> ans = new ArrayList<>(Arrays.asList(list[0]));
+        cnt = 0;
+        for(i =0; i< 5;i++){
+            if(Integer.parseInt(list[1][i]) != 0){
+                cnt++;
+            }
+        }
+        List<String> temp_ans = new ArrayList<>();
+        for(i =0; i< cnt;i++){
+            temp_ans.add(ans.get(i));
+        }
+        answer = temp_ans;
 
 
-        for(i =0; i< res.length;i++) {
-            System.out.print(res[i] + " ");
-        }
-        System.out.println();
-        for(i =0; i< guest.length;i++) {
-            System.out.println(guest[i] + " ");
-        }
-        System.out.println();
-        for(i =0; i< guest.length;i++) {
-            System.out.print(guest_score[i] + " ");
-        }
-        System.out.println();
-        for(i =0; i< sum.length;i++) {
-            System.out.print(sum[i] + " ");
-        }
-        System.out.println();
-        for(i =0; i< order_idx.length;i++) {
-            System.out.print(order_idx[i] + " ");
-        }
-        System.out.println();
-        for(i =0; i< list.length;i++) {
+/*        for(i =0; i< list.length;i++) {
             for (j = 0; j < list[0].length; j++) {
                 System.out.print(list[i][j] + " ");
             }
             System.out.println();
         }
+        System.out.println();*/
 
-        System.out.println();
-
+        for(i =0; i< answer.size();i++) {
+            System.out.print(answer.get(i) + " ");
+        }
         return answer;
     }
 
