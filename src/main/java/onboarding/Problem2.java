@@ -40,8 +40,8 @@ public class Problem2 {
             if(crypto[i] >= (char) 97 && crypto[i] <= (char) 122)
                 ans += String.valueOf(crypto[i]);
 
-/*            System.out.println("temp:" + temp + " ");
-            System.out.println("ans:" + ans + " ");*/
+            System.out.println("temp:" + temp + " ");
+            System.out.println("ans:" + ans + " ");
             crypto = new char[ans.length()];
             crypto = ans.toCharArray();
             temp = ans;
