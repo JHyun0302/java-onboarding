@@ -23,7 +23,6 @@ public class Problem2 {
             }
             if(cnt == 0)
                 break;
-            System.out.println("cnt:" + cnt + " ");
             for (i = 0; i < crypto.length- 1; i++) {
                 first = crypto[i];
                 second = crypto[i + 1];
@@ -40,8 +39,6 @@ public class Problem2 {
             if(crypto[i] >= (char) 97 && crypto[i] <= (char) 122)
                 ans += String.valueOf(crypto[i]);
 
-            System.out.println("temp:" + temp + " ");
-            System.out.println("ans:" + ans + " ");
             crypto = new char[ans.length()];
             crypto = ans.toCharArray();
             temp = ans;
@@ -60,8 +57,4 @@ public class Problem2 {
         answer = solution(cryptogram);
         System.out.println("Solution: " +answer);
     }
-<<<<<<< HEAD
 }
-=======
-}
->>>>>>> 57301ec (problem2,3,4,5 commit)
