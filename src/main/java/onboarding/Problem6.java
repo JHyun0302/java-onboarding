@@ -16,7 +16,7 @@ public class Problem6 {
         for(i=0;i<forms.size();i++)
             nickname[i]=forms.get(i).get(1);
 
-        for(i=0;i<forms.size()-1;i++){
+        for(i=0;i<forms.size()-1;i++){ //브루스 포스
             for(j=0;j<nickname[i].length()-1;j++){
                 for(k=i; k<forms.size()-1; k++) {
                     if (nickname[k + 1].indexOf(nickname[i].charAt(j)) != -1 && nickname[k + 1].indexOf(nickname[i].charAt(j)) != nickname[k + 1].length() - 1) {
@@ -35,7 +35,7 @@ public class Problem6 {
             }
         }
 
-        Collections.sort(answer,String.CASE_INSENSITIVE_ORDER);
+        Collections.sort(answer,String.CASE_INSENSITIVE_ORDER); //이름 순 정렬
 
         return answer;
     }
