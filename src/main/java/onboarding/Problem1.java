@@ -82,7 +82,7 @@ class Problem1 {
     public static void main(String[] args) throws IOException {
         int input = input();
         if(input == -1){
-            System.out.println("ERROR: 숫자를 입력하세요");
+            System.out.println("ERROR: 숫자를 입력하세요.");
             return;
         }
         int solution = solution(pobi, crong);
