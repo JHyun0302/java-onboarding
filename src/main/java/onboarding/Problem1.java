@@ -9,10 +9,7 @@ import java.util.StringTokenizer;
 
 class Problem1 {
 
-    static List<Integer> pobi = new ArrayList<>();
-    static List<Integer> crong = new ArrayList<>();
-
-    public static boolean bookPageError(){
+    public static boolean bookPageError(List<Integer> pobi, List<Integer> crong){
         if(pobi.get(0) + 1 == pobi.get(1) && crong.get(0) + 1 == crong.get(1)) {
             return true;
         }
@@ -68,7 +65,7 @@ class Problem1 {
     }
 
     public static int solution(List<Integer> pobi, List<Integer> crong) {
-        if(bookPageError() == false) {
+        if(bookPageError(pobi, crong) == false) {
             System.out.println("ERROR: 왼쪽, 오른쪽 페이지가 다릅니다.");
             return  -1;
         }
@@ -80,11 +77,15 @@ class Problem1 {
     }
 
     public static void main(String[] args) throws IOException {
-        int input = input();
+        List<Integer> pobi = new ArrayList<>();
+        List<Integer> crong = new ArrayList<>();
+
+        int input = input(pobi, crong);
         if(input == -1){
             System.out.println("ERROR: 숫자를 입력하세요.");
             return;
         }
+
         int solution = solution(pobi, crong);
         if(solution == -1){
             return;
@@ -93,7 +94,7 @@ class Problem1 {
 
 
     }
-    public static int input() throws IOException {
+    public static int input(List<Integer> pobi, List<Integer> crong) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         StringTokenizer st;
         System.out.print("page of pobi: ");
