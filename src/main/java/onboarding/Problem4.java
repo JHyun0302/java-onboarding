@@ -1,43 +1,56 @@
 package onboarding;
 
 public class Problem4 {
+    static char[] origin = new char[26];
+    static char[] changeCapitalAlphabet = new char[26];
+    static char[] changeSmallAlphabet = new char[26];
+
+
     public static String solution(String word) {
         String answer = "";
-        int i, j;
-        char[] capital = new char[26];
-        char[] small = new char[26];
-        char[] change_capital = new char[26];
-        char[] change_small = new char[26];
-        String temp = "";
-        for (i = 0; i < capital.length; i++) {
-            capital[i] = (char) (65 + i);
-            change_capital[capital.length - i - 1] = capital[i];
-        }
-        for (i = 0; i < small.length; i++) {
-            small[i] = (char) (97 + i);
-            change_small[capital.length - i - 1] = small[i];
-        }
+        char[] arrayWord = word.toCharArray();
+        changeAlphabet(word);
+        int i, j =0;
 
-        for (i = 0; i < word.length(); i++) {
-            if (word.charAt(i) == (char) 32)
-                temp += (char) 32;
-            for (j = 0; j < capital.length; j++) {
-                if (word.charAt(i) == capital[j])
-                    temp += change_capital[j];
-                if (word.charAt(i) == small[j])
-                    temp += change_small[j];
+        for(i =0; i<arrayWord.length; i++){
+            if(arrayWord[i] >= 65 && arrayWord[i] <= 90){
+                for(j =0; j< origin.length; j++){
+                    if(origin[j] == arrayWord[i]){
+                        answer += changeCapitalAlphabet[j];
+                    }
+                }
+            } else if (arrayWord[i] >= 97 && arrayWord[i] <= 122) {
+                for(j =0; j< origin.length; j++){
+                    if(origin[j] + 32 == arrayWord[i]){
+                        answer += changeSmallAlphabet[j];
+                    }
+                }
+            }else {
+                answer += " ";
             }
         }
-        answer = temp;
         return answer;
     }
+    static void changeAlphabet(String word){
+        int i;
+        for (i = 0; i < origin.length; i++) {
+            origin[i] = (char) (65 + i);
+        }
+        for (i = 0; i < changeCapitalAlphabet.length; i++) {
+            changeCapitalAlphabet[i] = (char) (90 - i);
+        }
+        for (i = 0; i < changeSmallAlphabet.length; i++) {
+            changeSmallAlphabet[i] = (char) (122 - i);
+        }
+
+    }
+
 
     public static void main(String[] args) {
         String word = "I love you";
         System.out.println(word);
-        String answer;
-        answer = solution(word);
-        System.out.println(answer);
+
+        System.out.println(solution(word));
     }
 }
 
